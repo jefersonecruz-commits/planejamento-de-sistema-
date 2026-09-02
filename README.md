@@ -1,67 +1,81 @@
 # Sistema de Gestão Escolar
 
-## Sistema para gerenciar funcionarios, alunos, cursos e matriculas
+## Sistema para gerenciar funcionários, alunos, cursos e matrículas
 
-1. Quem utilizara o sistema (usuarios)?
-alunos ,professores 
+1. Quem utilizará o sistema (usuários)?
+  - Funcionários
 
-2. quais os tipos de usuarios e o que cada tipo consegue fazer?
-estudantes que podem se matricular para começar a trabalhar
-funcionarios q querem uma oprtundade de emprego fazer uma oferta de trabalho para receber tal quantia de dinheiro e alguns beneficios 
-funcionarios que trabalham bem em grupo
-e pessoas que possam contratalos
+2. Quais os tipos de usuários e o que cada tipo consegue fazer?
+  - Colaboradores: Cadastrar alunos, cadastrar cursos, editar dados dos alunos, editar dados dos cursos, excluir alunos, excluir cursos, listar alunos, listar cursos, matricular alunos nos cursos, desmatricular alunos dos cursos e atualizar os próprios dados
+  - Admin: Todas as funções acima, mais: cadastrar outros funcionários, listar outros funcionários, editar dados dos outros funcionários e excluir outros funcionários
 
-3. quais informações podemos armazenar?
- FUNCIONARIOS:nome ,cpf ,telefone ,email ,data de nascimento , senha ,endereço
- 
- ALUNOS:matricula ,data de nascimento ,email ,telefone ,cpf ,nome
- 
- CURSOS:descrição ,carga horaria ,nome 
+3. Quais informações iremos armazenar?
+  - Funcionários: Nome, email, cargo, data de nascimento, cpf, senha, telefone, endereço
+  - Alunos: Matrícula, CPF, Nome, data de nascimento, email, telefone, endereço
+  - Cursos: Descrição, carga horária, nome
+  - Matrículas: Quais alunos estão cadastrados em quais cursos
 
- MATRICULAS:quais alunos estão cadastrados em quais cursos
+4. Quais regras ou restrições são necessárias?
+  - Apenas funcionários admin podem criar/deletar outros funcionários
+  - Funcionários colaboradores não podem editar dados de outros funcionários
+  - CPF não pode repetir, email não pode repetir
+  - Nome, email, cargo, cpf, senha, carga horária, matrícula são dados obrigatórios
+  - Um aluno não pode ser matriculado duas ou mais vezes no mesmo curso
+  - O sistema deve validar as informações
 
-4. quais regras ou restrições são necessarias?
-apenas funcionarios adms podem criar/deletar outros funcionarios,
+## PROBLEMA:
+  - Esses sistema é direcionado a funcionários de escolas
+  - Permite cadastrar, editar, listar e deletar alunos, cursos, matrículas e funcionários
+  
+## MODELO DE NEGÓCIO:
+  ![Business Model Canvas](images/business-model-canvas.png)
 
-funcionarios colaboradorem não podem editar dados de outros dados,
+## REQUISITOS:
+1. Requisitos Funcionais:
+  - Cadastrar alunos
+  - Cadastrar funcionários
+  - Cadastrar cursos
+  - Listar alunos
+  - Listar cursos
+  - Listar funcionários
+  - Mostrar os dados do aluno
+  - Mostrar os dados do funcionário
+  - Mostrar os dados do curso
+  - Realizar as matrículas
+  - Editar os dados do aluno
+  - Editar os dados do funcionário
+  - Editar os dados do curso
+  - Excluir os alunos
+  - Excluir os funcionários
+  - Excluir os cursos
+  - Excluir as matrículas
+  - Login de usuários
+  - Buscar aluno pelo nome
+  - Buscar aluno pelo CPF
+  - Buscar funcionário pelo nome
+  - Buscar funcionário pelo CPF
+  - Mostrar os cursos em que cada aluno está matriculado
+  - Mostrar os alunos que estão matriculados em cada curso
+2. Requisitos Não Funcionais:
+  - Autenticação
+  - Interface com navegação padronizada e consistente entre as telas
+  - Interface responsiva e adaptativa a diversas resoluções de tela e dispositivos diferentes, como computador, celular e tablet
+  - Interface deve ser compatível com os principais navegadores web
+  - Criptografar as senhas antes de salvá-las no banco de dados
+  - Disponível durante todo o horário de funcionamento da instituição
+  - Restringir acesso pelo tipo de usuário
+  
+## REGRAS DE NEGÓCIO:
+- CPF de cada aluno deve ser único
+- CPF de cada funcionário deve ser único
+- Email de cada funcionário deve ser único
+- A matrícula de cada aluno deve ser única
+- Nome de cada curso deve ser único
+- Impedir exclusão de cursos que tenham alunos matriculados
+- Impedir exclusão de alunos que estejam matriculados em 1 ou mais cursos
 
-(horario de entrada ,nome ,senha ,matricula)dados obrigatorios
-(cpf e email)nunca se repetem
-um aluno não pode ser matriculado mais de uma vez no mesmo curso
-o sistema deve validar as informações
+## CASOS DE USO:
+  ![Casos de uso](images/diagrama-casos-de-uso.png)
 
-## POIBLEMA:
-    esse sistema é direcionado a funcionarios de escolas
-    permite cadstrar ,editar ,listar e deletar alunos ,cursos ,matriculas e funcionarios
-
-## modelo de negocio:
- ![Business Model Canva](image/bussines-model-canvas.png)
-
- ## REQUISITOS:
- 1. requisitos funcionais:
-    cadastrar alunos 
-    cadastrar funcionarios 
-    cadastrar cursos
-    listar alunos
-    listar cursos
-    listar funcionarios
-    mostrar os dados dos alunos
-    mostrar os dados dos funcionarios
-    mostrar os dados do curso
-    realizar as matriculas
-    editar os dados do aluno
-    editar os dados do funcionario
-    editar os dados do curso
-    excluir os alunos
-    excluir os funcionarios
-    excluir os cursos
-    excluir as matriculas
-    carga horaria
-    
-
-2. requisitos não funcionais:
-    autenticação
-    interface com navegação padronizada e consistente entre as telas
-    interface responsaveis e adaptativa e diversas reluções de tela e dispopsitivos diferentes,como computador ,celular e tablet
-    interface deve ser computavel com os principios navegadores web
-    criptografar as senhas antes de salva-las no banco de dados
+## classes de uso: 
+  ![classes](images/classes.png)
